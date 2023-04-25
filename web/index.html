@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A multi-restaurant e-commerce web app.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Grab">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <meta name="google-signin-client_id" content="455397468481-s80s41bnok3pkdbdgp6dfmvfd91svr6m.apps.googleusercontent.com">
+
+  <title>Grab</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxVgZAVReB3PMNAiYNZ3c9hCR6_8BPM2I"></script>
+<!--  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>-->
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/firebase-messaging-sw.js");
+      });
+      window.addEventListener('flutter-first-frame', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js');
+      });
+    }
+  </script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js"></script>
+
+  <div class="center">
+    <img src="logo.png" alt = "logo" height="250px" width="250px" />
+    <br>
+    <div class="loader" style="width:250px;text-align: center;"><div class="classic-4"></div></div>
+  </div>
+
+
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyCxVgZAVReB3PMNAiYNZ3c9hCR6_8BPM2I",
+      authDomain: "grabapp-b08f0.firebaseapp.com",
+      projectId: "grabapp-b08f0",
+      storageBucket: "grabapp-b08f0.appspot.com",
+      messagingSenderId: "455397468481",
+      appId: "1:455397468481:web:9926f9232f3320c66059c0",
+      measurementId: "G-J02WQVK0RE"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <script src="main.dart.js?version=6.1.0" type="application/javascript"></script>
+</body>
+</html>
